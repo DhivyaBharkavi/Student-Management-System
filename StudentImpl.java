@@ -1,5 +1,5 @@
 package exercise14aug19;
-
+ 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,28 +37,37 @@ public class StudentImpl implements StudentInsertDetails {
 	int r=0;
 	for(int i=0;i<list.size();i++)
 	{
-		Address a = (Address) list.get(i);
+		//Address addr = (Address) list.get(i);
 		Personal po = (Personal) list.get(i);
+		Address add=po.getAddress();
 		PreparedStatement pr=con.prepareStatement("INSERT INTO personal_details VALUES (?,?,?,?,?,?,?,?,"
 				+ "?,?,?,?,?,?,?,?,?,?)");
 		pr.setString(1, po.getName());
-		pr.setString(2,po.getAddress());
+		pr.setString(2,add.getDoorNo());
+		pr.setString(2, add.getStreetName());
+		pr.setInt(2, add.getPinCode());
+		pr.setString(2, add.getTaluk());
+		pr.setString(2, add.getDistrict());
+		pr.setString(2, add.getCity());
+		pr.setString(2, add.getState());
+		pr.setString(2,add.getCountry());
+	//	pr.setString(2,po.getAddress().toString());
 		pr.setString(3, po.getNationality());
-		pr.setString(6, po.getCommunity());
-		pr.setString(7, po.getFatherName());
-		pr.setString(8, po.getFatherOccupation());
-		pr.setInt(9, po.getFatherIncome());
-		pr.setLong(10, po.getFatherMobNo());
-		pr.setString(11, po.getGuardianName());
-		pr.setLong(12, po.getGuardianMobNo());
-		pr.setString(13, po.getMotherName());
-		pr.setString(14, po.getMotherOccupation());
-		pr.setInt(15,po.getMotherIncome());
-		pr.setLong(16, po.getMotherMobNo());
-		pr.setString(17, po.getSpecialCategory());
-		pr.setLong(18, po.getPanNo());
-		pr.setString(19, po.getIdentityMarks());
-		pr.setLong(20, po.getMobNo());
+		pr.setString(4, po.getCommunity());
+		pr.setString(5, po.getFatherName());
+		pr.setString(6, po.getFatherOccupation());
+		pr.setInt(7, po.getFatherIncome());
+		pr.setLong(8, po.getFatherMobNo());
+		pr.setString(9, po.getGuardianName());
+		pr.setLong(10, po.getGuardianMobNo());
+		pr.setString(11, po.getMotherName());
+		pr.setString(12, po.getMotherOccupation());
+		pr.setInt(13,po.getMotherIncome());
+		pr.setLong(14, po.getMotherMobNo());
+		pr.setString(15, po.getSpecialCategory());
+		pr.setLong(16, po.getPanNo());
+		pr.setString(17, po.getIdentityMarks());
+		pr.setLong(18, po.getMobNo());
 		r=pr.executeUpdate();
 		//list.add(po);
 	}
@@ -66,6 +75,7 @@ public class StudentImpl implements StudentInsertDetails {
 	}
 	public int address(Connection con, ArrayList list) throws SQLException 
 	{
+		
 		int rr=0;
 		for(int i=0;i<list.size();i++)
 		{
@@ -81,7 +91,7 @@ public class StudentImpl implements StudentInsertDetails {
 			pr.setString(8,a.getCountry());
 			rr=pr.executeUpdate();
 		}
-		return rr;
+		return rr;  
 		
 	}
 

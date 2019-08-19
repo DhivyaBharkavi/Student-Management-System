@@ -22,6 +22,7 @@ private long mobNo;
 public String getName() {
 	return name;
 }
+
 public String getFatherName() {
 	return fatherName;
 }

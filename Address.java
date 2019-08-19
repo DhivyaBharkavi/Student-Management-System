@@ -12,6 +12,10 @@ private String country;
 public String getDoorNo() {
 	return doorNo;
 }
+public String toString()
+{
+	return  doorNo+" "+streetName+" "+pinCode+" "+taluk+" "+district+" "+city+" "+state+" "+country+" "; //+ " "+ address.getDistrict(); 
+}
 public void setDoorNo(String doorNo) {
 	this.doorNo = doorNo;
 }

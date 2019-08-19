@@ -35,6 +35,8 @@ public class StudentImplTest {
 			{
 				ArrayList list=id.insertOfficialDetails();
 				ArrayList al=id.insertPersonalDetails();
+				//ArrayList ad=id.address();
+				Address ad=id.address();
 				//id.address();
 				int rs=si.insertOfficialDetails(con,list);
 				int r=si.insertPersonalDetails(con, al);
@@ -46,6 +48,16 @@ public class StudentImplTest {
 				{
 					System.out.println("Failed Successfully");
 				}
+/*				//int r1=si.address(con,ad);
+				if(r1!=-1)
+				{
+					System.out.println("Inserted Successfully");
+				}
+				else
+				{
+					System.out.println("Failed Successfully");
+*/				//}
+				
 			}
 			}
 		}

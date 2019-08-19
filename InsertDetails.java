@@ -23,15 +23,16 @@ public class InsertDetails {
 		//scan.nextInt();
 		System.out.println("Enter age");
 		int age=scan.nextInt();
+		scan.next();
 		System.out.println("Enter date of birth");
 		String dob=scan.nextLine();
-		scan.next();
+		
 		System.out.println("Enter blood group");
 		String blood_group=scan.nextLine();
-		scan.next();
+	//	scan.next();
 		System.out.println("Enter mail id");
 		String mailId=scan.nextLine();
-		scan.next();
+		//scan.next();
 		System.out.println("Enter mobile number");
 		long mobNo=scan.nextLong();
 		System.out.println("Enter aadhar number");
@@ -42,9 +43,8 @@ public class InsertDetails {
 		return list;
 	
 	}
-	public void address()
+	public Address address()
 	{
-		
 		System.out.println("Enter door number");
 		String doorNo=scan.next();
 		System.out.println("Enter street name");
@@ -61,7 +61,11 @@ public class InsertDetails {
 		String state=scan.next();
 		System.out.println("Enter country");
 		String country=scan.next();
-		
+		Address a = new Address(doorNo,streetName,pinCode,taluk,district,city,state,country);
+		//ArrayList list = new ArrayList();
+		//list.add(a);
+		return a;
+	
 		
 	}
 	public ArrayList insertPersonalDetails( )
@@ -71,17 +75,25 @@ public class InsertDetails {
 		ArrayList list=new ArrayList();
 		System.out.println("Enter a name");
 		String name=scan.next();
-		address();
-		Address addr = new Address();
-		/*addr.setDoorNo(doorNo);
+		System.out.println("Enter your official address : ");
+		Address addr = address();
+		
+		//System.out.println("Enter a address");
+		//Address addr=scan.next();
+		
+/*		for(int i=0;i<list.size();i++)
+		{
+		Address addr=(Address) list.get(i);
+		addr.getDoorNo();
 		addr.setStreetName(streetName);
 		addr.setPinCode(pinCode);
 		addr.setTaluk(taluk);
 		addr.setDistrict(district);
 		addr.setCity(city);
 		addr.setState(state);
-		addr.setCountry(country);*/
-		System.out.println("Enter a nationality");
+		addr.setCountry(country);
+		}
+*/		System.out.println("Enter a nationality");
 		String nationality=scan.next();
 		System.out.println("Enter a community");
 		String community=scan.next();
